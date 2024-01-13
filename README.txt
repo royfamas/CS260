@@ -6,8 +6,8 @@
 - Cybersecurity
 
 2. CS Topics that I think are difficult:
-- Datastructures
-- Memeory allocation
+- Data structures
+- Memory allocation
 - Algorithms
 
-I haven't gotted that deep into CS yet so I don't know what else I would consider difficult.
+I haven't gotten that deep into CS yet so I don't know what else I would consider difficult.
