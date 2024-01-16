@@ -27,3 +27,5 @@ This program models a bag of marbles, allowing users to add and remove marbles.
 ## Testing
 
 Inputs: 1 (add) => 5,5,5 (red/green/blue) => 2 (remove) => 1,2,3 (red/green/blue) => 3 Print => 4 Red, 3 Green, 2 Blue, 9 Total. 
+
+#: This program assumes the inputs are all positive.
