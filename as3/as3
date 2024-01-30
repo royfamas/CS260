@@ -1,0 +1,81 @@
+#include <iostream>
+using namespace std;
+
+class Node {
+public:
+    int data;
+    Node* next;
+
+    Node(int value) : data(value), next(nullptr) {}
+};
+
+
+class Linkedlist {
+private:
+    Node* front;
+    Node* rear;
+
+public:
+    Linkedlist() : front(nullptr), rear(nullptr) {}
+
+    ~Linkedlist() {
+        while (!is_empty()) {
+            dequeue();
+        }
+    }
+
+    bool is_empty() {
+        return front == nullptr;
+    }
+
+// Enqueue
+    void enqueue(int value) {
+        Node* new_node = new Node(value);
+        if (is_empty()) {
+            front = rear = new_node;
+        } else {
+            rear->next = new_node;
+            rear = new_node;
+        }
+    }
+
+// Dequeue
+    int dequeue() {
+            int value = front->data;
+            Node* temp = front;
+            front = front->next;
+            delete temp;
+            if (front == nullptr) {
+                rear = nullptr;
+            }
+            return value;
+        }
+
+// Optional Peek
+    int peek() {
+        return front->data;
+    }
+};
+
+
+int main() {
+
+    Linkedlist queue;
+
+
+        // Test Enqueue
+        queue.enqueue(1);
+        queue.enqueue(2);
+        queue.enqueue(3);
+
+        // Test Dequeue
+        cout << "Dequeue: " << queue.dequeue() << endl;
+
+        // Test Peek
+        cout << "Peek: " << queue.peek() << endl;
+
+        // Additional Test for Empty Queue
+        cout << "Dequeue: " << queue.dequeue() << endl;  // Should throw an exception
+
+    return 0;
+}
