@@ -1,0 +1,5 @@
+I used both Arraylist and Linkedlist for this assignment and snippets for requirements, testing and outputs can be found in the images folder.
+
+For autosorting it's based on ascending order and to test that I've added elements in random order in the main function, the display function shows them being sorted in ascending order in the output.
+
+As for the class activity I tried looking it up but I couldn't find the video that goes over it in modules.
