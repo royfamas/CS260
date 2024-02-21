@@ -1,0 +1,222 @@
+#include <iostream>
+
+using namespace std;
+
+
+class Node {
+public:
+    int data;       
+    Node* next;     
+
+    Node(int val) : data(val), next(nullptr) {}
+};
+
+
+class LinkedList {
+private:
+    Node* head;     
+
+public:
+    // Constructor
+    LinkedList() : head(nullptr) {}
+
+    // Add a value at a specific position in the list
+    void add(int value, int position) {
+        Node* newNode = new Node(value);   
+
+        // If position is 0, insert at the beginning of the list
+        if (position == 0) {
+            newNode->next = head;
+            head = newNode;
+            return;
+        }
+
+        Node* temp = head;
+
+        // Loop until position
+        for (int i = 0; i < position - 1 && temp != nullptr; ++i) {
+            temp = temp->next;
+        }
+
+        // If position is out of scope
+        if (temp == nullptr) {
+            cout << "Invalid position" << endl;
+            delete newNode;
+            return;
+        }
+
+        newNode->next = temp->next;
+        temp->next = newNode;
+    }
+
+    // Remove a value from a specific position in the list
+    int remove(int position) {
+
+        if (head == nullptr) {
+            cout << "List is empty" << endl;
+            return -1;
+        }
+
+        Node* temp = head;
+
+        // If position is 0
+        if (position == 0) {
+            int removedValue = head->data;
+            head = head->next;
+            delete temp;
+            return removedValue;
+        }
+
+        for (int i = 0; i < position - 1 && temp->next != nullptr; ++i) {
+            temp = temp->next;
+        }
+
+        // If position is out of scope
+        if (temp->next == nullptr) {
+            cout << "Invalid position" << endl;
+            return -1;
+        }
+
+        // Remove the node at the specified position
+        Node* toDelete = temp->next;
+        int removedValue = toDelete->data;
+        temp->next = toDelete->next;
+        delete toDelete;
+        return removedValue;
+    }
+
+    // Get the value at a specific position in the list
+    int get(int position) {
+        Node* temp = head;
+
+        for (int i = 0; i < position && temp != nullptr; ++i) {
+            temp = temp->next;
+        }
+
+        // If position is out of scope
+        if (temp == nullptr) {
+            cout << "Invalid position" << endl;
+            return -1;
+        }
+
+        return temp->data;
+    }
+};
+
+// Test add
+void testAdd() {
+    LinkedList myList;
+    myList.add(1, 0);
+    myList.add(2, 1);
+    myList.add(3, 2);
+
+    cout << "Test Add: " << myList.get(0) << ", " << myList.get(1) << ", " << myList.get(2) << endl;
+}
+
+void testAdd2() {
+    LinkedList myList;
+    myList.add(9, 0);
+    myList.add(99, 1);
+    myList.add(999, 2);
+
+    cout << "Test Add: " << myList.get(0) << ", " << myList.get(1) << ", " << myList.get(2) << endl;
+}
+
+void testAdd3() {
+    LinkedList myList;
+    myList.add(147, 0);
+    myList.add(78, 1);
+    myList.add(592, 2);
+
+    cout << "Test Add: " << myList.get(0) << ", " << myList.get(1) << ", " << myList.get(2) << endl;
+}
+
+// Test remove
+void testRemove() {
+    LinkedList myList;
+    myList.add(1, 0);
+    myList.add(2, 1);
+    myList.add(3, 2);
+
+    cout << "Before Removal: " << myList.get(0) << ", " << myList.get(1) << ", " << myList.get(2) << endl;
+    int removedValue = myList.remove(1);
+    cout << "Removed Value: " << removedValue << endl;
+    cout << "After Removal: " << myList.get(0) << ", " << myList.get(1) << endl;
+}
+
+void testRemove2() {
+    LinkedList myList;
+    myList.add(9, 0);
+    myList.add(99, 1);
+    myList.add(999, 2);
+
+    cout << "Before Removal: " << myList.get(0) << ", " << myList.get(1) << ", " << myList.get(2) << endl;
+    int removedValue = myList.remove(1);
+    cout << "Removed Value: " << removedValue << endl;
+    cout << "After Removal: " << myList.get(0) << ", " << myList.get(1) << endl;
+}
+
+void testRemove3() {
+    LinkedList myList;
+    myList.add(147, 0);
+    myList.add(78, 1);
+    myList.add(592, 2);
+
+    cout << "Before Removal: " << myList.get(0) << ", " << myList.get(1) << ", " << myList.get(2) << endl;
+    int removedValue = myList.remove(1);
+    cout << "Removed Value: " << removedValue << endl;
+    cout << "After Removal: " << myList.get(0) << ", " << myList.get(1) << endl;
+}
+
+// Test get
+void testGet() {
+    LinkedList myList;
+    myList.add(1, 0);
+    myList.add(2, 1);
+    myList.add(3, 2);
+
+    cout << "Test Get: " << myList.get(1) << endl;
+}
+
+void testGet2() {
+    LinkedList myList;
+    myList.add(9, 0);
+    myList.add(99, 1);
+    myList.add(999, 2);
+
+    cout << "Test Get: " << myList.get(1) << endl;
+}
+
+void testGet3() {
+    LinkedList myList;
+    myList.add(147, 0);
+    myList.add(78, 1);
+    myList.add(592, 2);
+
+    cout << "Test Get: " << myList.get(1) << endl;
+}
+
+// Main 
+int main() {
+
+    cout << "=====================" << endl;
+    cout << "Test 1: " << endl;
+    testAdd();
+    testRemove();
+    testGet();
+    cout << "=====================" << endl;
+
+    cout << "Test 2: " << endl;
+    testAdd2();
+    testRemove2();
+    testGet2();
+    cout << "=====================" << endl;
+
+    cout << "Test 3: " << endl;
+    testAdd3();
+    testRemove3();
+    testGet3();
+    cout << "=====================" << endl;
+
+    return 0;
+}
