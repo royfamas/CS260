@@ -1,1 +1,115 @@
+1. Create a design before you begin to code that describes or shows how we can store data in a hash table and what kind of problem we could solve with a hash table.
+## Design
+
+The hash table is implemented using an array of strings to store the values. Each value is hashed to determine its index in the array. Collisions are resolved by overwriting the existing value at the hashed index.
+
+## Functionality
+
+1. **Add**: Adds a value to the hash table at the appropriate location based on its hash value.
+2. **Search**: Searches for a value in the hash table and returns true if found, false otherwise.
+3. **Remove**: Removes a value from the hash table based on its hash value.
+4. **Get Collision Count**: Returns the number of collisions that occurred during insertions.
+
+2. Create some tests (at least one per piece of functionality) before you begin coding that you want your hashtable to pass before you start coding.
+## Tests
+
+### Test 1: Adding Values
+
+#### Input:
+- Add "Joseph"
+- Add "Josepi"
+- Add "cats"
+
+#### Expected Output:
+- "Joseph" added successfully.
+- "Josepi" added successfully.
+- "cats" added with 1 collision.
+
+### Test 2: Searching for Values
+
+#### Input:
+- Search for "Joseph"
+- Search for "dogs"
+
+#### Expected Output:
+- "Joseph" found in the hash table.
+- "dogs" not found in the hash table.
+
+### Test 3: Removing Values
+
+#### Input:
+- Remove "cats"
+
+#### Expected Output:
+- "cats" removed successfully.
+
+3. Create a hashtable that resolves collisions by simply overwriting the old value with the new value, including at least:
+
+Describe the way that you decide on hashing a value
+(this can be simple or complex based on how interesting you find the topic)
+= The hashing of a value is done using a simple method. The hashing function calculates the sum of the ASCII values of all characters in the 
+input string and then takes the modulo of this sum with the capacity of the hash table. This results in an integer value representing the hash 
+code for the input string.
+
+- An insert function that places the value at the appropriate location based on its hash value
+= hash.cpp lines 28-49
+
+- A contains function that returns whether the value is already in the hashtable
+= hash.cpp lines 62-72
+
+- (optional) A delete function that removes a value based on its hash and then returns that value…
+= hash.cpp lines 51-60
+
+4. Then create a smarter hashtable (double hashing or chaining) including at least the same functions as the simple hashtable
+= s_hash.cpp and s_hash.hpp files
+
+5. Compare some information relating to collisions (frequency) and their effect on complexity (of insert and contains methods)
+## Complexity Analysis
+
+Simple Hash:
+- Insertion: O(1), O(n) worst case
+- Search: O(1), O(n) worst case
+
+Smart Hash:
+- Insertion: O(1), O(1) worst case
+- Search: O(1), O(1) worst case
+
+### Inputs and Outputs of Tests
+
+#### Simple Hash Table Tests
+- **Create table**
+    - Input: None
+    - Output: Print an empty table with capacity and size information.
+- **Add Joseph**
+    - Input: Key "Joseph"
+    - Output: Print the table contents after adding "Joseph" along with size and collision count information.
+- **Add Josepi**
+    - Input: Key "Josepi"
+    - Output: Print the table contents after adding "Josepi" along with size and collision count information.
+- **Add cats**
+    - Input: Key "cats"
+    - Output: Print the table contents after adding "cats" along with size and collision count information.
+- **Remove cats**
+    - Input: Key "cats"
+    - Output: Print the table contents after removing "cats" along with size and collision count information.
+
+#### Smarter Hash Table Tests
+- **Create table**
+    - Input: None
+    - Output: Print an empty table with capacity and size information.
+- **Add Joseph**
+    - Input: Key "Joseph"
+    - Output: Print the table contents after adding "Joseph" along with size and collision count information.
+- **Add Josepi**
+    - Input: Key "Josepi"
+    - Output: Print the table contents after adding "Josepi" along with size and collision count information.
+- **Add cats**
+    - Input: Key "cats"
+    - Output: Print the table contents after adding "cats" along with size and collision count information.
+- **Remove cats**
+    - Input: Key "cats"
+    - Output: Print the table contents after removing "cats" along with size and collision count information.
+
+
+
 
