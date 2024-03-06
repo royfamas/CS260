@@ -1,1 +1,68 @@
+1- Create a design, before you start coding, that shows how your binary tree functions and what attributes it keeps track of to function (yes, you can add to this 
+design once you start coding, but please get some design down to start with and make note of when you add new design features based on your implementation work🙂)
+
+## Design
+
+The binary search tree (BST) implementation consists of two main components:
+- `BinarySearchTree` class: This class represents the binary search tree structure and contains functions for adding, removing, and searching for elements in the tree.
+- `BinaryNode` struct: This struct defines the structure of a node in the binary search tree, which includes a value and pointers to its left and right children.
+
+### BinarySearchTree Class Functions:
+- `BinarySearchTree()`: Constructor function to initialize the root pointer to nullptr.
+- `add(int new_value)`: Function to add a new value to the binary search tree while maintaining the binary search tree property.
+- `remove(int old_value)`: Function to remove a value from the binary search tree while ensuring that the binary search tree property is preserved.
+- `search(int proposed_value)`: Function to search for a value in the binary search tree.
+- `in_order_traversal()`: Function to perform an in-order traversal of the binary search tree.
+
+2- Create some tests (at least one per function), before you start coding, that you want your Binary Search Tree (BST) to pass as evidence that it would be working correctly if it passed the tests
+
+## Tests
+
+1. Test adding elements to the tree:
+   - Add multiple elements to the tree and verify that they are inserted correctly.
+   - Ensure that duplicate elements are not added to the tree.
+
+2. Test removing elements from the tree:
+   - Remove elements from the tree and verify that the tree structure is maintained.
+   - Verify the removal of leaf nodes, nodes with one child, and nodes with two children.
+
+3. Test searching for elements in the tree:
+   - Search for elements that exist in the tree and ensure that they are found.
+   - Search for elements that do not exist in the tree and verify that they are not found.
+
+4. Test in-order traversal:
+   - Perform in-order traversal of the tree and verify that the elements are visited in ascending order.
+
+3- Implement a binary search tree that includes:
+
+nodes to store values, 
+= binary_node_h lines 1-6
+
+an add function that adds a new value in the appropriate location based on our ordering rules,
+(I likely used less than or equal to going to the left and greater than values going to the right)
+= binary_search_tree.cpp lines 31-48
+
+a remove function that finds and removes a value and then picks an appropriate replacement node,
+(successor is a term often used for this)
+= binary_search_tree.cpp lines 50-53 and 85-111
+
+we have at least one tree traversal function (I recommend starting with an in-order traversal!)
+= binary_search_tree.cpp lines 59-63 and 77-83
+
+Bonus if you implement the three common traversals (pre-order, post-order, in-order)
+= none
+
+More Bonus if you also include a breadth-first traversal (sometimes called a level-order search)
+= none
+
+4- Analyze and compare the complexity of insert and search as compared to a binary tree without any order in its nodes (what is the run-time of an unordered tree...?).
+
+## Complexity Analysis
+
+- Insertion (add): O(log n)
+- Removal (remove): O(log n)
+- Search (search): O(log n)
+- In-order traversal: O(n)
+
+
 
