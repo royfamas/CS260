@@ -65,4 +65,11 @@ More Bonus if you also include a breadth-first traversal (sometimes called a lev
 - In-order traversal: O(n)
 
 
+## Inputs and Outputs
 
+Inputs: add 10 5 15 3 7 12 17
+
+Output: 
+In-order traversal: 3 5 7 10 12 15 17
+7 is present in the tree.
+In-order traversal after removing 5: 3 7 10 12 15 17
