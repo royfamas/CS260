@@ -1,1 +1,86 @@
+1- // Design
 
+Problem:
+We are designing a navigation system for a city where intersections are represented as vertices and roads connecting intersections are represented as edges in a graph. 
+The goal is to efficiently find the shortest path between two intersections for navigation purposes and to determine the minimum spanning tree of the city's road network.
+
+Data Representation:
+- Each intersection is represented as a vertex in the graph.
+- Each road connecting two intersections is represented as an edge in the graph.
+- We'll use weighted edges where the weight represents the distance between intersections.
+
+Solution Approach:
+1. Add Vertex Functionality: Add vertices representing intersections to the graph.
+2. Add Edge Functionality: Add edges representing roads between intersections, along with their distances.
+3. Shortest Path Algorithm: Implement Dijkstra's algorithm to find the shortest path between two intersections.
+4. Minimum Spanning Tree Algorithm: Implement Prim's or Kruskal's algorithm to find the minimum spanning tree of the city's road network.
+
+
+2- // Tests
+
+Add Vertex Functionality:
+1. Add a single vertex to the graph and verify its existence.
+2. Add multiple vertices to the graph and verify each one exists.
+
+Add Edge Functionality:
+1. Add an edge between two existing vertices and verify its existence.
+2. Attempt to add an edge between a non-existing vertex and an existing one, expecting failure.
+
+Shortest Path Algorithm:
+1. Create a simple graph with known distances between intersections. Find the shortest path between two intersections and verify it.
+2. Create a complex graph with multiple interconnected intersections and find the shortest path between two distant intersections.
+
+Minimum Spanning Tree Algorithm:
+1. Create a simple graph with known distances between intersections. Find the minimum spanning tree and verify its correctness.
+2. Create a complex graph with multiple interconnected intersections and find the minimum spanning tree.
+
+
+4- // Complexity Analysis
+
+- Add Vertex: O(1) - Inserting a vertex involves adding an element to a hash map.
+- Add Edge: O(1) - Inserting an edge involves adding an element to a vector.
+- Shortest Path Algorithm (Dijkstra's): O((V + E) log V) - Where V is the number of vertices and E is the number of edges.
+- Minimum Spanning Tree Algorithm (Prim's or Kruskal's):
+  - Prim's: O(V^2) with adjacency matrix or O(E log V) with priority queue.
+  - Kruskal's: O(E log E) or O(E log V) - Sorting edges by weight and disjoint set operations.
+
+5- // Implementation
+
+(5%) a function to add a new vertex to the graph (perhaps add_vertex(vertex_name)),
+= graph.h -> lines 29 - 35
+
+(5%) a function to add a new edge between two vertices of the graph (perhaps add_edge(source, destination) or source.add_edge(destination)),
+= graph.h -> lines 37 - 44
+
+(15%) a function for a shortest path algorithm (perhaps shortest_path(source, destination)),
+= graph.h -> lines 46 - 83
+
+(15%) a function for a minimum spanning tree algorithm (example min_span_tree()).
+= graph.h -> lines 85 - 109
+
+// Inputs and Outputs
+
+Inputs:
+- For Add Vertex Functionality:
+  - A single vertex: 'A'
+  - Multiple vertices: 'A', 'B', 'C'
+- For Add Edge Functionality:
+  - Two existing vertices 'A' and 'B' with weight 5
+  - Two existing vertices 'A' and 'C' with weight 10
+  - Two existing vertices 'B' and 'C' with weight 3
+- For Shortest Path Algorithm:
+  - A simple graph with vertices 'A', 'B', 'C' and edges with weights: (A, B) = 5, (A, C) = 10, (B, C) = 3
+  - A complex graph with interconnected vertices and edges with weights
+- For Minimum Spanning Tree Algorithm:
+  - A simple graph with vertices 'A', 'B', 'C' and edges with weights: (A, B) = 5, (A, C) = 10, (B, C) = 3
+  - A complex graph with interconnected vertices and edges with weights
+
+Outputs:
+- For Add Vertex Functionality:
+  - Verification of successful addition of each vertex.
+- For Add Edge Functionality:
+  - Verification of successful addition of each edge.
+- For Shortest Path Algorithm:
+  - The shortest path between two intersections.
+- For Minimum Spanning Tree Algorithm:
+  - Edges forming the minimum spanning tree of the graph.
